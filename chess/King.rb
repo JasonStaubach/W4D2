@@ -1,16 +1,18 @@
 require_relative 'piece'
-class King < Piece
+require_relative "stepable"
 
+class King < Piece
+include Stepable
 
     MOVES = [
-        [1, 0]
-        [1,1]
-        [0,1]
-        [-1,0]
-        [-1,-1]
-        [-1, 1]
-        [0, -1]
-        [1, -1]
+        [1, 0],
+        [1,1],
+        [0,1],
+        [-1,0],
+        [-1,-1],
+        [-1, 1],
+        [0, -1],
+        [1, -1],
 ]
 
     def self.moves
@@ -18,10 +20,13 @@ class King < Piece
         MOVES
 
     end 
+    def initialize(color = :w, board = nil, pos = nil)
+        super
+    end
 
-    def initialize(color, board, pos)
-        super(color, board, pos)
+    # def initialize(color = :w, board = nil, pos = nil)
+    #     super(color, board, pos)
 
-    end 
+    # end 
 
 end 

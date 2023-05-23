@@ -8,10 +8,11 @@ class Board
 
         @board = Array.new(8) {Array.new(8, @nul_piece_ins)}
 
-        @board[0].each_with_index{|ele,i| @board[0][i] = Piece.new}
-        @board[1].each_with_index{|ele,i| @board[1][i] = Piece.new}
-        @board[-1].each_with_index{|ele,i| @board[-1][i] = Piece.new}
-        @board[-2].each_with_index{|ele,i| @board[-2][i] = Piece.new}
+        @board[0].each_with_index{|ele,i| @board[0][i] = Piece.new(:w,@board,[0,i])}
+        @board[1].each_with_index{|ele,i| @board[1][i] = Piece.new(:w,@board, [1,i])}
+        @board[-1].each_with_index{|ele,i| @board[-1][i] = Piece.new(:b, @board, [-1,i])}
+        @board[-2].each_with_index{|ele,i| @board[-2][i] = Piece.new(:b, @board, [-2,i])}
+        # @board[4][4] = King.new
         
 
     end 
@@ -51,8 +52,9 @@ class Board
             raise 'off da board'
         end 
 
-        var = self[start_pos]
 
+        var = self[start_pos]
+        p var
         self[start_pos] = @nul_piece_ins
 
         self[end_pos] = var
