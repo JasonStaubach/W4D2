@@ -1,4 +1,4 @@
-
+require_relative 'king'
 require_relative "board"
 class Piece
 

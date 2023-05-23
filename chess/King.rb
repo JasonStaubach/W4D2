@@ -20,7 +20,7 @@ include Stepable
         MOVES
 
     end 
-    def initialize(color = :w, board = nil, pos = nil)
+    def initialize(color = :w, board = nil, pos = [0, 0])
         super
     end
 

@@ -1,3 +1,4 @@
+require_relative 'king'
 require_relative 'piece.rb'
 class Board 
 
@@ -12,7 +13,7 @@ class Board
         @board[1].each_with_index{|ele,i| @board[1][i] = Piece.new(:w,@board, [1,i])}
         @board[-1].each_with_index{|ele,i| @board[-1][i] = Piece.new(:b, @board, [-1,i])}
         @board[-2].each_with_index{|ele,i| @board[-2][i] = Piece.new(:b, @board, [-2,i])}
-        # @board[4][4] = King.new
+        @board[4][4] = King.new(:b, @board, [4,4])
         
 
     end 
