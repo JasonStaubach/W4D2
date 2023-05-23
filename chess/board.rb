@@ -1,16 +1,18 @@
-require_relative 'piece'
+require_relative 'piece.rb'
 class Board 
 
-
+    attr_reader :board
     def initialize
 
         @nul_piece_ins = 'nul_piece'
 
         @board = Array.new(8) {Array.new(8, @nul_piece_ins)}
-        @board[0].map! {|ele| ele = 'piece' }
-        @board[1].map! {|ele| ele = 'piece' }
-        @board[-1].map! {|ele| ele = 'piece' }
-        @board[-2].map! {|ele| ele = 'piece' }
+
+        @board[0].each_with_index{|ele,i| @board[0][i] = Piece.new}
+        @board[1].each_with_index{|ele,i| @board[1][i] = Piece.new}
+        @board[-1].each_with_index{|ele,i| @board[-1][i] = Piece.new}
+        @board[-2].each_with_index{|ele,i| @board[-2][i] = Piece.new}
+        
 
     end 
 
@@ -56,7 +58,21 @@ class Board
         self[end_pos] = var
     
 
-    end 
+    end
+    
+    def render
+        @board.each do |row|
+            row.each do |ele|
+                if ele.is_a?(Piece)
+                    print ele.name 
+                else
+                    print ele
+                end
+                print "||"
+            end
+            puts
+        end
+    end
 
 
 end 
