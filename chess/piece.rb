@@ -1,18 +1,19 @@
 class Piece 
 
-    def initialize
-        @name = "piece"
+    attr_reader :name :color, :board, :pos
 
-        # @color = color 
+    def initialize(color, board, pos)
 
-        # @board = Board.new
+        @name = 'piece'
 
-        # @pos = pos
+        @color = color 
+
+        @board = Board.new
+
+        @pos = pos
 
     end 
-    def name 
-        @name
-    end
+
 
     # def inspect
     #     p "#<Piece:#{object_id}, @name:#{@name}> "
@@ -28,6 +29,8 @@ class Piece
 
     def valid_moves
 
+        raise "#{@name} has no valid moves"
+
     end
 
     def pos=(val)
@@ -36,6 +39,13 @@ class Piece
     def Symbol
 
     end
+
+    def moves 
+
+        #takes available moves from piece sub(pawn) and shows available(empty)
+        #pos on board
+
+    end 
     private
     def move_into_check?(end_pos)
 

@@ -64,14 +64,15 @@ class Board
         @board.each do |row|
             row.each do |ele|
                 if ele.is_a?(Piece)
-                    print ele.name 
+                    print ele.name.ljust(10) 
                 else
-                    print ele
+                    print ele.ljust(10)
                 end
                 print "||"
             end
             puts
         end
+        nil
     end
 
 
