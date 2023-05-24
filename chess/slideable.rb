@@ -44,10 +44,10 @@ require 'byebug'
         c = self.pos[1]
         continue = true
         while continue
-
+        p useful_moves
         row = poss_pos[0] + r
         col = poss_pos[1] + c
-        debugger 
+        # debugger 
         
          if range.include?(pos[0]) && range.include?(pos[1])
             continue = false
@@ -74,7 +74,7 @@ require 'byebug'
 
     end
  
-       useful_moves
+    useful_moves
          
   
       # iterate over each of the directions in which a slideable piece can move

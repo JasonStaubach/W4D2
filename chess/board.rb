@@ -21,6 +21,7 @@ class Board
         self.assign_back_row(:w)
         @board[-2].each_with_index{|ele,i| @board[-2][i] = Pawn.new(:w, @board, [-2,i])}
         
+        @board[4][4] = Queen.new(:w,@board, [4,4])
 
     end 
 
@@ -66,6 +67,7 @@ class Board
         self[start_pos] = NillPiece.instance
 
         self[end_pos] = var
+        self[end_pos].pos = [end_pos]
     
 
     end
@@ -93,21 +95,21 @@ class Board
         while pos[1] < 8
             case pos[1]
             when 0 
-                self[pos] = Rook.new(symbol, @board,pos)
+                self[pos] = Rook.new(symbol, @board,pos.dup)
             when 1
-                self[pos] = Knight.new(symbol, @board, pos)
+                self[pos] = Knight.new(symbol, @board, pos.dup)
             when 2
-                self[pos] = Bishop.new(symbol,@board,pos)
+                self[pos] = Bishop.new(symbol,@board,pos.dup)
             when 3 
-                self[pos] = Queen.new(symbol,@board,pos)
+                self[pos] = Queen.new(symbol,@board,pos.dup)
             when 4
-                self[pos] = King.new(symbol,@board,pos)
+                self[pos] = King.new(symbol,@board,pos.dup)
             when 5
-                self[pos] = Bishop.new(symbol,@board,pos)
+                self[pos] = Bishop.new(symbol,@board,pos.dup)
             when 6
-                self[pos] = Knight.new(symbol, @board, pos)
+                self[pos] = Knight.new(symbol, @board, pos.dup)
             when 7
-                self[pos] = Rook.new(symbol, @board,pos)
+                self[pos] = Rook.new(symbol, @board,pos.dup)
             end
 
             pos[1] += 1
