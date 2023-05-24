@@ -7,4 +7,7 @@ include Slideable
         @name = '♗'
         super
     end
+    def move_dirs
+        diagonal_dirs
+    end
 end
