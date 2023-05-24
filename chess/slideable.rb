@@ -1,4 +1,5 @@
 module Slideable
+require 'byebug'
 
     # HORIZONTAL_DIRS stores an array of horizontal directions
       # when a piece moves in a given direction, its row and/or its column should increment by some value
@@ -34,7 +35,6 @@ module Slideable
     def moves
       # create array to collect moves
       useful_moves = []
-      move_dirs = self.moves
 
       range = (0..7)
 
@@ -47,7 +47,8 @@ module Slideable
 
         row = poss_pos[0] + r
         col = poss_pos[1] + c
-
+        debugger 
+        
          if range.include?(pos[0]) && range.include?(pos[1])
             continue = false
 
