@@ -21,8 +21,9 @@ class Board
         self.assign_back_row(:w)
         @board[-2].each_with_index{|ele,i| @board[-2][i] = Pawn.new(:w, @board, [-2,i])}
         
-        @board[4][4] = Queen.new(:w,@board, [4,4])
-
+        @board[4][4] = King.new(:w,@board, [4,4])
+        @board[4][6] = Knight.new(:b,@board, [4,6])
+        # @board [2][2] = Rook.new(:w,@board, [2,2])
     end 
 
 
