@@ -6,7 +6,7 @@ include Slideable
         @name = '♖'
         super
     end
-    debugger
+
 
     def move_dirs
         horizontal_dirs

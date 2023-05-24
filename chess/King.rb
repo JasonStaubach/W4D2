@@ -20,12 +20,9 @@ include Stepable
         @name = '♔'
         super
     end
-    
-private
-    def self.diff_moves
 
+    def move_diffs 
         MOVES
-
     end 
 
 end 

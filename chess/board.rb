@@ -23,7 +23,7 @@ class Board
         
         @board[4][4] = King.new(:w,@board, [4,4])
         @board[4][6] = Knight.new(:b,@board, [4,6])
-        # @board [2][2] = Rook.new(:w,@board, [2,2])
+    
     end 
 
 

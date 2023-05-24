@@ -13,9 +13,15 @@ require_relative 'stepable'
     ]
 
 class Knight < Piece
+    include Stepable
 
     def initialize(color = :w, board = nil, pos = [0,1])
         @name = "♘"
-        super(color, board, pos)
+        super
     end 
+
+    def move_diffs
+        MOVES
+    end
+
 end 

@@ -1,23 +1,31 @@
 module Stepable 
+  
 
-    def place_move
+    def moves
 
         useful_moves = []
-
-     curr_moves = self.moves
-     
-        p self.pos
-      curr_moves.each do |poss_pos|
+      range = (0..7)
+    
+      move_diffs.each do |poss_pos|
         row = poss_pos[0] + self.pos[0]
         col = poss_pos[1] + self.pos[1]
-        if self.board[row][col].color != self.color 
+        if range.include?(row) && range.include?(col) 
+          if (self.board[row][col].color != self.color) 
             pos = [row, col]
             useful_moves << pos
+          end 
         end 
       end
 
       useful_moves
-        
+
     end 
 
-end 
+
+      def move_diffs
+        # subclass implements this
+        raise NotImplementedError
+      end
+            
+    end 
+ 
