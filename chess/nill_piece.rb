@@ -1,8 +1,10 @@
-# require_relative "piece"
+require_relative "piece"
 require "singleton"
 
-class NillPiece 
+class NillPiece < Piece
+    include Singleton
     def initialize
         @name = "nilita"
+        @color = :g
     end
 end

@@ -12,9 +12,8 @@ class Board
     attr_reader :board
     def initialize
 
-        @nul_piece_ins = 'nul_piece'
 
-        @board = Array.new(8) {Array.new(8, "nill_piece")}
+        @board = Array.new(8) {Array.new(8, NillPiece.instance)}
 
         self.assign_back_row(:b)
         @board[1].each_with_index{|ele,i| @board[1][i] = Pawn.new(:b,@board, [1,i])}
@@ -53,7 +52,7 @@ class Board
 
     def move_piece(start_pos, end_pos)
 
-        if self[start_pos] == @nul_piece_ins
+        if self[start_pos] == NillPiece.instance
             raise 'no piece'
         end 
 
@@ -64,7 +63,7 @@ class Board
 
         var = self[start_pos]
         p var
-        self[start_pos] = @nul_piece_ins
+        self[start_pos] = NillPiece.instance
 
         self[end_pos] = var
     
@@ -75,9 +74,9 @@ class Board
         @board.each do |row|
             row.each do |ele|
                 if ele.is_a?(Piece)
-                    print ele.name.ljust(10) 
+                    print ele.name.ljust(6) 
                 else
-                    print ele.ljust(10)
+                    print ele.ljust(6)
                 end
                 print "||"
             end

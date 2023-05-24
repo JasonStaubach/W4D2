@@ -15,19 +15,17 @@ include Stepable
         [1, -1],
 ]
 
-    def self.moves
-
-        MOVES
-
-    end 
+ 
     def initialize(color = :w, board = nil, pos = [0, 0])
         @name = '♔'
         super
     end
+    
+private
+    def self.diff_moves
 
-    # def initialize(color = :w, board = nil, pos = nil)
-    #     super(color, board, pos)
+        MOVES
 
-    # end 
+    end 
 
 end 
