@@ -43,22 +43,23 @@ require 'byebug'
         r = self.pos[0]
         c = self.pos[1]
         continue = true
+        #debugger
         while continue
-        p useful_moves
+        
         row = poss_pos[0] + r
         col = poss_pos[1] + c
-        # debugger 
-        
-         if range.include?(pos[0]) && range.include?(pos[1])
-            continue = false
 
-         elsif self.board[row][col].color == :g
+         if !range.include?(row) || !range.include?(col)
+            continue = false
+          
+          elsif self.board[row][col].color == :g
 
              pos = [row, col]
+  
              useful_moves << pos
 
-             r += pos[0]
-             c += pos[1]
+             r += poss_pos[0]
+             c += poss_pos[1]
 
          elsif self.board[row][col].color != self.color
 
