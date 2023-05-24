@@ -32,17 +32,28 @@ class Manager < Employee
     end
 
     def bonus(multiplier)
-        sum_salaries = 0
-        @employees.each {|employee| sum_salaries += employee.salary}
-        sum_salaries * multiplier
+        total = self.total_subsalary * multiplier
+    end
+    protected
+    def total_subsalary
+        salary = 0
+        self.employees.each do |employee|
+            if employee.is_a?(Manager)
+                salary += employee.total_subsalary + employee.salary
+            else
+                salary += employee.salary
+            end
+        end
+        salary
     end
 end
 
-p darren = Manager.new("Darren", "TA manager", 78000)
-p david = Employee.new("David","TA", 10000, darren)
-p shawna = Employee.new("Shawna", "TA", 12000, darren)
-# p ned = Manager.new("Ned", "Founder", 1000000, nil, [darren, shawna])
+ned = Manager.new("Ned", "Founder", 1000000, nil)
+darren = Manager.new("Darren", "TA manager", 78000, ned)
+david = Employee.new("David","TA", 10000, darren)
+shawna = Employee.new("Shawna", "TA", 12000, darren)
 # darren.employs(david)
-p darren
+
 p david.bonus(3)
 p darren.bonus(4)
+p ned.bonus(5)

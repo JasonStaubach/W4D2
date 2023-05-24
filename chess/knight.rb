@@ -14,11 +14,8 @@ require_relative 'stepable'
 
 class Knight < Piece
 
-    def initialize(color, board, pos)
+    def initialize(color = :w, board = nil, pos = [0,1])
+        @name = "♘"
         super(color, board, pos)
-
     end 
-
-
-
 end 

@@ -21,6 +21,7 @@ include Stepable
 
     end 
     def initialize(color = :w, board = nil, pos = [0, 0])
+        @name = '♔'
         super
     end
 

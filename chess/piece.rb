@@ -1,12 +1,11 @@
 require_relative 'king'
+require_relative 'nill_piece'
 require_relative "board"
 class Piece
 
     attr_reader :name, :color, :board, :pos
 
     def initialize(color = nil, board = nil, pos = nil)
-
-        @name = 'piece'
 
         @color = color 
 
