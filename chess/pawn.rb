@@ -45,31 +45,31 @@ class Pawn < Piece
 
         direction = for_dir? 
 
-
-
-
-
     end 
 
     def side_attacks 
 
         side_moves = []
 
-        debugger 
+        # debugger 
 
         dir = for_dir?
 
         attacks = [[1, -1], [1,1]]
 
         
-
-        attacks.map! {|attack| attack[0] * dir}.each do |attack|
-            row = attack[0] + self.pos[0]
-            col = attack[1] + self.pos[1]
-        if (self.color == :w && self.board[row][col].color == :b)
-            side_moves << attack
+        debugger
+        attacks.each_with_index {|attack,i| attack[i] = [(attack[0] * dir),attack[i][1]]}
+        attacks.each do |attack|
+                row = attack[0] + self.pos[0]
+                col = attack[1] + self.pos[1]
+            if (self.color == :w && self.board[row][col].color == :b)
+                side_moves << attack
+            elsif(self.color == :b && self.board[row][col].color == :w)
+                p attack
+                side_attacks << attack
+            end
         end
-    end
     
         side_moves
 

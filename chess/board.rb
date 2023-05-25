@@ -19,8 +19,9 @@ class Board
         @board[1].each_with_index{|ele,i| @board[1][i] = Pawn.new(:b,@board, [1,i])}
         
         self.assign_back_row(:w)
-        @board[-2].each_with_index{|ele,i| @board[-2][i] = Pawn.new(:w, @board, [-2,i])}
+        @board[-2].each_with_index{|ele,i| @board[-2][i] = Pawn.new(:w, @board, [6,i])}
         
+        @board[4][4] = Pawn.new(:b, @board, [4,4])
         # @board[4][4] = King.new(:w,@board, [4,4])
         # @board[4][6] = Knight.new(:b,@board, [4,6])
     
